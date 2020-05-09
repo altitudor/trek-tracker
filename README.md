@@ -2,25 +2,59 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application Name: Trek Tracker
 
-Things you may want to cover:
+Author: Monika Wilson
 
-* Ruby version
+Link:
 
-* System dependencies
+### About:
 
-* Configuration
+This web app was built in Ruby on Rails backend, Postgres database and React front end.
 
-* Database creation
+The gem "make_it_so" was used as a starting point for the app. This allows for default gems allowing Rspec, Devise, Postgres, Foundation, React and Jest among others. All the dependencies are in the Gemfile. In addition to the make_it_so gems, these three gems were added to the Gemfile.
 
-* Database initialization
+* gem "carrierwave"
+* gem "fog-aws"
+* gem "active_model_serializers"
 
-* How to run the test suite
+APIs used in the app are:
+* Hiking Project API
+* OpenWeatherMap API
+* HTML Geolocation API
 
-* Services (job queues, cache servers, search engines, etc.)
+### Features:
+* As an unauthenticated user, Trek Tracker allows a user to view all trails in the app database as well as information about the trail and trail notes for those trails from posted by other users.
 
-* Deployment instructions
+* As an unauthenticated user, you can sign up to become an authenticated user with member status.
 
-* ...
+* As an authenticated user with member status, you can add trails and trail details.
+
+* As an authenticated user with member status, you can post, edit and delete your own trail notes.
+
+* As an authenticated user with admin authorization, you have the additional authority to delete trails and trail notes of other users.
+
+### Getting start from the repository:
+Download or clone this repository from GitHub then run the following commands in the terminal to get the application running on your localhost.
+```
+bundle install
+yarn install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+In separate terminal tabs run:
+```
+rails server
+```
+```
+yarn start
+```
+## Running the test suite
+To run the test suite run the following commands in the terminal
+```
+yarn test
+```
+```
+bundle exec RSpec
+```
