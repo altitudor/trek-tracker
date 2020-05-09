@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :trail_data, only: [:show]
       resources :user, only: [:index]
       resources :nearby_trails_data, only: [:index]
+      resources :nearby_weather_data, only: [:index]
     end
   end
 end

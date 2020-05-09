@@ -48,6 +48,7 @@ const NearbyTrailList = (props) => {
 
   return (
     <div>
+    Nearby Trails: 
     {trailsInfo}
   </div>
   )

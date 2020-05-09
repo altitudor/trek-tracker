@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import NearbyTrailList from "../components/NearbyTrailList";
+import NearbyWeatherComponent from "../components/NearbyWeatherComponent";
 
 const NearbyTrailsContainer = (props) => {
   const [coords, setCoords] = useState({})
@@ -16,10 +17,17 @@ const NearbyTrailsContainer = (props) => {
 
 
   return(
-    <div>
-    <NearbyTrailList
-    coords={coords}
-    />
+    <div className="grid-container no-padding">
+      <div className="cell grid-x grid-margin-x">
+        <NearbyTrailList
+          coords={coords}
+        />
+      </div>
+      <div className="cell grid-x grid-margin-x">
+        <NearbyWeatherComponent
+          coords={coords}
+        />
+      </div>
     </div>
   )
 }
