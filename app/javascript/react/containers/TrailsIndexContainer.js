@@ -5,11 +5,6 @@ import TrailTile from "../components/TrailTile";
 
 const TrailsIndexContainer = (props) => {
   const [trails, setTrails] = useState([]);
-  const [user, setUser] = useState({
-    id: null,
-    userName: null,
-    admin: null
-  });
 
   const fetchTrails = () => {
     fetch("/api/v1/trails")
@@ -25,7 +20,6 @@ const TrailsIndexContainer = (props) => {
       .then((response) => response.json())
       .then((body) => {
         setTrails(body.trails);
-        setUser(body.trails[0].user);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   };
@@ -70,7 +64,7 @@ const TrailsIndexContainer = (props) => {
         <TrailTile
           key={trail.id}
           trail={trail}
-          user={user}
+          user={trail.user}
           deleteClick={deleteClick}
         />
       );
@@ -78,7 +72,7 @@ const TrailsIndexContainer = (props) => {
   }
 
   let addTrail;
-  if (user.userName) {
+  if (props.user) {
     addTrail = (
       <Link className="button" to="/trails/new">
         Add a Trail

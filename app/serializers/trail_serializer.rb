@@ -1,5 +1,5 @@
 class TrailSerializer < ActiveModel::Serializer
-  attributes :id, :name, :notes, :user
+  attributes :id, :name, :api_id, :notes, :user
 
   def user
     if scope
