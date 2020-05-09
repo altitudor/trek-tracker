@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TrailsIndexContainer from "../containers/TrailsIndexContainer";
 import TrailsNewContainer from "../containers/TrailsNewContainer";
 import TrailShowContainer from "../containers/TrailShowContainer";
+import NearbyTrailsContainer from "../containers/NearbyTrailsContainer";
 
 export const App = (props) => {
   const loggedOutUser = {
@@ -49,6 +50,9 @@ export const App = (props) => {
           <Route exact
                  path="/trails/new"
                  render={(props) => <TrailsNewContainer {...props} user={user}/>}/>
+         <Route exact
+               path="/trails/nearby"
+               render={(props) => <NearbyTrailsContainer {...props} user={user}/>}/>
           <Route exact
                 path="/trails/:id"
                 render={(props) => <TrailShowContainer {...props} user={user}/>}/>

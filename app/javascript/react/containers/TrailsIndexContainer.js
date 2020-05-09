@@ -82,10 +82,17 @@ const TrailsIndexContainer = (props) => {
     addTrail = <></>;
   }
 
+  let nearbyTrails = (
+      <Link className="button" to="/trails/nearby">
+        See Nearby Trails
+      </Link>
+    );
+
   return (
     <div className="center">
       {addTrail}
       {trailTiles}
+      {nearbyTrails}
     </div>
   );
 };
