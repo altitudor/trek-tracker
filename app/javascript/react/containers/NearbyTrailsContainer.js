@@ -17,17 +17,19 @@ const NearbyTrailsContainer = (props) => {
 
 
   return(
-    <div className="grid-container no-padding">
-      <div className="cell grid-x grid-margin-x">
+    <div className="grid-container">
+    <div className="grid-x grid-margin-x">
+      <div className="cell small-6 callout">
         <NearbyTrailList
           coords={coords}
         />
       </div>
-      <div className="cell grid-x grid-margin-x">
+      <div className="cell small-6 callout">
         <NearbyWeatherComponent
           coords={coords}
         />
       </div>
+    </div>
     </div>
   )
 }
