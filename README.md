@@ -2,11 +2,11 @@
 
 # README
 
-Web application Name: PeakPlanner
+Web application Name: BaseCamp
 
 Author: Monika Wilson
 
-Link:https://peakplanner.herokuapp.com/
+Link:https://basecamp.herokuapp.com/
 
 ### About:
 
@@ -24,7 +24,7 @@ APIs used in the app are:
 * HTML Geolocation API
 
 ### Features:
-* As an unauthenticated user, PeakPlanner allows a user to view all trails in the app database as well as information about the trail and trail notes for those trails from posted by other users.
+* As an unauthenticated user, BaseCamp allows a user to view all trails in the app database as well as information about the trail and trail notes for those trails from posted by other users.
 
 * As an unauthenticated user, you can sign up to become an authenticated user with member status.
 

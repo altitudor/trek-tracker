@@ -31,9 +31,12 @@ const NearbyTrailList = (props) => {
     return(
       <div key={trail.id} className="grid-container no-padding">
         <div className="grid-x grid-margin-x">
-          <h3 className="small-8 large-10">{trail.name}</h3>
+          <h4 className="small-8 large-10">{trail.name}</h4>
+          <div>
+          <img src={trail.imgSmallMed}/>
+          </div>
         </div>
-        <h4>Trail Information:</h4>
+        <h5>Trail Information:</h5>
         <ul>
           <li>Location: {trail.location}</li>
           <li>Description: {trail.summary}</li>
@@ -48,7 +51,7 @@ const NearbyTrailList = (props) => {
 
   return (
     <div>
-    Nearby Trails: 
+    <h3>Nearby Trails:</h3>
     {trailsInfo}
   </div>
   )

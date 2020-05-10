@@ -91,14 +91,11 @@ const TrailsIndexContainer = (props) => {
   return (
     <div className="grid-container">
       <div className="grid-x grid-margin-x">
-        <div>
-        {nearbyTrails}
-        </div>
         <div className="cell small-3 callout">
-          Popular Trails: {trailTiles}
-        </div>
-        <div>
-        {addTrail}
+        <h3>Popular Trails:</h3>
+          {trailTiles}
+          {addTrail}
+          {nearbyTrails}
         </div>
       </div>
     </div>

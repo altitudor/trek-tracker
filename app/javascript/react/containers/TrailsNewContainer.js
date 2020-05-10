@@ -77,23 +77,25 @@ const TrailsNewContainer = (props) => {
 
   return (
     <div>
-      <ErrorList errors={errors} />
-      <div className="callout">
-        <h4 className="center">Add a Trail</h4>
-        <form className="new-trail" onSubmit={onSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              id="name"
-              onChange={handleChange}
-              value={trailRecord.name}
-            />
-          </label>
-          <input className="button center" type="submit" value="Submit" />
-        </form>
+      <div className="callout trail">
+        <ErrorList errors={errors} />
+        <div className="callout">
+          <h4 className="center">Add a Trail</h4>
+          <form className="new-trail" onSubmit={onSubmit}>
+            <label>
+              Name:
+              <input
+                type="text"
+                id="name"
+                onChange={handleChange}
+                value={trailRecord.name}
+              />
+            </label>
+            <input className="button center" type="submit" value="Submit" />
+          </form>
+        </div>
+        <Link to="/" className="button center">All Trails</Link>
       </div>
-      <Link to="/" className="button center">All Trails</Link>
     </div>
   );
 };

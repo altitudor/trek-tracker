@@ -89,23 +89,23 @@ const TrailShowContainer = (props) => {
   }
 
   return (
-    <div>
-      <div className="grid-container no-padding">
-        <div className="grid-x grid-margin-x">
-          <h3 className="small-6 callout">{trail.name}</h3>
-        </div>
+    <div className="grid-container">
+    <div className="grid-x grid-margin-x">
+      <div className="cell small-6 callout">
+        <TrailData apiId={trail.api_id}
+        />
+        <Link to="/" className="button">All Trails</Link>
       </div>
-      {noteForm}
-      <div className="cell note small-6 callout">
+      <div className="cell small-6">
+        {noteForm}
+      <div className="cell small-6">
         <h4>Trail Notes:</h4>
         {noteTiles}
       </div>
-      <div className="cell data small-6 callout">
-        <TrailData apiId={trail.api_id}
-        />
       </div>
-      <Link to="/" className="button">All Trails</Link>
     </div>
+    </div>
+
   );
 };
 
