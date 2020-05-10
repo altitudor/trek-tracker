@@ -1,7 +1,7 @@
 body {
   color: #1779BA;
   background-image: url("background-faded.png");
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 html, body {
@@ -13,11 +13,24 @@ html, body {
   min-height: 100%;
 }
 
+.callout {
+  color: #8499B3;
+  width: 553px;
+}
+
+h2 {
+  color: #8499B3;
+}
+
 h3 {
-  color: #83BCE6;
+  color: #8499B3;
 }
 
 h4 {
+  color: #1779BA;
+}
+
+h5 {
   color: #1779BA;
 }
 
@@ -34,5 +47,15 @@ li {
 }
 
 .button {
-  background-color: lightblue;
+  background-color: #F48650;
+}
+
+.cell {
+  margin-top: 3rem;
+}
+
+.trail {
+  margin-top: 3rem;
+  width: 500px;
+  margin: auto;
 }
