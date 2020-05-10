@@ -92,15 +92,15 @@ const TrailShowContainer = (props) => {
     <div>
       <div className="grid-container no-padding">
         <div className="grid-x grid-margin-x">
-          <h3 className="small-8 large-10">{trail.name}</h3>
+          <h3 className="small-6 callout">{trail.name}</h3>
         </div>
       </div>
       {noteForm}
-      <div className="note">
+      <div className="cell note small-6 callout">
         <h4>Trail Notes:</h4>
         {noteTiles}
       </div>
-      <div className="data">
+      <div className="cell data small-6 callout">
         <TrailData apiId={trail.api_id}
         />
       </div>
