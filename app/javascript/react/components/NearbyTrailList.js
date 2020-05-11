@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import FavoriteComponent from "./FavoriteComponent";
+
 const NearbyTrailList = (props) => {
   let [ trails, setTrails ] = useState([]);
 
@@ -31,6 +33,9 @@ const NearbyTrailList = (props) => {
     return(
       <div key={trail.id} className="grid-container no-padding">
         <div className="grid-x grid-margin-x">
+        <FavoriteComponent
+          api_id={trail.id}
+        />
           <h4 className="small-8 large-10">{trail.name}</h4>
           <div>
           <img src={trail.imgSmallMed}/>

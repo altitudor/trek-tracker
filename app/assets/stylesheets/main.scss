@@ -18,28 +18,38 @@ html, body {
   width: 553px;
 }
 
+h1 {
+  font-family: 'Unica One', cursive;
+}
+
 h2 {
   color: #8499B3;
+  font-family: 'Oranienbaum', serif;
 }
 
 h3 {
   color: #8499B3;
+  font-family: 'Oranienbaum', serif;
 }
 
 h4 {
   color: #1779BA;
+  font-family: 'Oranienbaum', serif;
 }
 
 h5 {
   color: #1779BA;
+  font-family: 'Oranienbaum', serif;
 }
 
 p {
-  color: #1779BA;
+  color: rgb(5, 59, 95);
+  font-family: 'Oranienbaum', serif;
 }
 
 li {
-  color: #1779BA;
+  color: rgb(5, 59, 95);
+  font-family: 'Oranienbaum', serif;
 }
 
 .trail-tile {
@@ -48,6 +58,7 @@ li {
 
 .button {
   background-color: #F48650;
+  font-family: 'Unica One', cursive;
 }
 
 .cell {

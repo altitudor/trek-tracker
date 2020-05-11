@@ -21,7 +21,6 @@ const NearbyWeatherComponent = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        console.log(body);
           setWeather(body);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));

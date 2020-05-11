@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FavoriteComponent from "./FavoriteComponent";
 
 const TrailTile = (props) => {
   let deleteButton = <></>;
@@ -10,9 +11,12 @@ const TrailTile = (props) => {
 
   return (
     <div className="trail-tile">
+      <FavoriteComponent
+        api_id={props.trail.api_id}
+      />
       <Link to={`/trails/${props.trail.id}`}>{props.trail.name}</Link>
       <div>
-      {deleteButton}
+        {deleteButton}
       </div>
     </div>
   );
