@@ -5,3 +5,5 @@ class Api::V1::UserController < ApplicationController
       render json: current_user
     end
 end
+
+  
