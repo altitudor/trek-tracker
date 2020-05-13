@@ -1,6 +1,8 @@
 body {
   color: #1779BA;
   background-image: url("/background-faded.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   opacity: 0.95;
 }
 
