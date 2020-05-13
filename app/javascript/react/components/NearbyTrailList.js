@@ -28,14 +28,22 @@ const NearbyTrailList = (props) => {
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, [props.coords]);
 
+  
+
   let trailsInfo;
   trailsInfo = trails.map((trail)=> {
+    let favorite = <></>
+
+    if (props.user.id && trail) {
+    favorite = <FavoriteComponent
+          api_id={trail.id}
+        />
+    }
+
     return(
       <div key={trail.id} className="grid-container no-padding">
         <div className="grid-x grid-margin-x">
-        <FavoriteComponent
-          api_id={trail.id}
-        />
+          {favorite}
           <h4 className="small-8 large-10">{trail.name}</h4>
           <div>
           <img src={trail.imgSmallMed}/>

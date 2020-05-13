@@ -12,7 +12,7 @@ const TrailsNewContainer = (props) => {
   });
   const [newRecord, setNewRecord] = useState({});
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState([]);
 
   const handleChange = (event) => {
     setTrailRecord({
@@ -55,7 +55,7 @@ const TrailsNewContainer = (props) => {
           if (response.ok) {
             return response;
           } else {
-            response.json().then((body) => setErrors(body.error));
+            response.json().then((body) => setErrors([body.error]));
             let errorMessage = `${response.status} (${response.statusText})`;
             let error = new Error(errorMessage);
             throw error;
@@ -77,26 +77,26 @@ const TrailsNewContainer = (props) => {
 
   return (
     <div>
-      <div className="callout trail">
+      <div className="trail">
         <ErrorList errors={errors} />
         <div className="callout">
           <h4 className="center">Add a Trail</h4>
-          <form className="new-trail" onSubmit={onSubmit}>
-            <label>
-              Name:
-              <input
-                type="text"
-                id="name"
-                onChange={handleChange}
-                value={trailRecord.name}
-              />
-            </label>
-            <input className="button center" type="submit" value="Submit" />
-          </form>
+            <form className="new-trail" onSubmit={onSubmit}>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  id="name"
+                  onChange={handleChange}
+                  value={trailRecord.name}
+                />
+              </label>
+              <input className="button center" type="submit" value="Submit" />
+            </form>
+          <Link to="/" className="button center">All Trails</Link>
         </div>
-        <Link to="/" className="button center">All Trails</Link>
-      </div>
     </div>
+   </div>
   );
 };
 

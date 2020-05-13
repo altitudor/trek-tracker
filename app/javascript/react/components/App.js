@@ -5,6 +5,7 @@ import TrailsIndexContainer from "../containers/TrailsIndexContainer";
 import TrailsNewContainer from "../containers/TrailsNewContainer";
 import TrailShowContainer from "../containers/TrailShowContainer";
 import NearbyTrailsContainer from "../containers/NearbyTrailsContainer";
+import UserShowContainer from "../containers/UserShowContainer";
 
 export const App = (props) => {
   const loggedOutUser = {
@@ -28,8 +29,8 @@ export const App = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        if (body) {
-          setUser(body);
+        if (body && body.user) {
+          setUser(body.user);
         } else {
           setUser(loggedOutUser);
         }
@@ -56,6 +57,9 @@ export const App = (props) => {
           <Route exact
                 path="/trails/:id"
                 render={(props) => <TrailShowContainer {...props} user={user}/>}/>
+          <Route exact
+                path="/users/:id"
+                render={(props) => <UserShowContainer {...props} user={user}/>}/>
         </Switch>
       </BrowserRouter>
     </div>

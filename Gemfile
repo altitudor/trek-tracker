@@ -29,7 +29,7 @@ gem 'active_model_serializers'
 gem "active_model_serializers", require: true
 
 group :development, :test do
-
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -57,3 +57,5 @@ gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 
 gem 'faraday'
+gem 'fog-aws'
+gem 'carrierwave'

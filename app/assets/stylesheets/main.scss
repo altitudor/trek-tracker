@@ -1,7 +1,7 @@
 body {
   color: #1779BA;
   background-image: url("/background-faded.png");
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 html, body {
@@ -16,49 +16,61 @@ html, body {
 .callout {
   color: #8499B3;
   width: 553px;
+  border-radius: 20px;
+  margin: auto;
 }
 
-h1 {
+h1 a {
   font-family: 'Unica One', cursive;
 }
 
 h2 {
   color: #8499B3;
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
 }
 
 h3 {
   color: #8499B3;
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
+  background-color: white;
 }
 
 h4 {
   color: #1779BA;
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
 }
 
 h5 {
   color: #1779BA;
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
+}
+
+a {
+  font-family: 'Scope One', serif;
 }
 
 p {
   color: rgb(5, 59, 95);
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
 }
 
 li {
   color: rgb(5, 59, 95);
-  font-family: 'Oranienbaum', serif;
+  font-family: 'Scope One', serif;
 }
 
 .trail-tile {
-  font-size: 15px;
+  font-size: 25px;
+  font-family: 'Scope One', serif;
 }
 
 .button {
   background-color: #F48650;
   font-family: 'Unica One', cursive;
+  opacity: 1;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 20px;
 }
 
 .cell {
@@ -69,4 +81,43 @@ li {
   margin-top: 3rem;
   width: 500px;
   margin: auto;
+}
+
+.user-pic-thumbnail {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.flash {
+  font-family: 'Oranienbaum', serif;
+  color: #F48650;
+}
+
+img {
+  height: 250px;
+  width: 225px;
+}
+
+.nearby {
+  margin-right: 0;
+}
+
+.welcome {
+  font-family: 'Unica One', cursive;
+  font-size: 75px;
+  text-shadow: white;
+  color: rgb(60, 64, 66);
+  position: relative; 
+	top: 55px;
+  text-align: center;
+}
+
+i {
+  float: left;
+}
+
+.profile {
+  background-color: white;
+  border-radius: 20px;
 }

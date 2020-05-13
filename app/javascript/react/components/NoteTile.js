@@ -1,6 +1,8 @@
 import React from "react";
 
 const NoteTile = (props) => {
+  
+  
   let deleteButton = <></>;
 
   if (props.canDelete) {

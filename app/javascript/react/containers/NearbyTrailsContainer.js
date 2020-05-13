@@ -22,6 +22,7 @@ const NearbyTrailsContainer = (props) => {
       <div className="cell small-6 callout">
         <NearbyTrailList
           coords={coords}
+          user={props.user}
         />
       </div>
       <div className="cell small-6 callout">

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/trails/new', to: "static_pages#authenticate"
   get '/trails/nearby', to: "static_pages#index"
   get '/trails/:id', to: "static_pages#index"
+  get '/users/:id', to: "static_pages#index"
 
 
   # get '/api/v1/trail_data/:id', to: "trail_data#show"
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
       resources :nearby_trails_data, only: [:index]
       resources :nearby_weather_data, only: [:index]
       resources :favorites, only: [:index, :show, :create, :destroy]
+      resources :users, only: [:show]
+      resources :favorite_trails_data, only: [:show]
     end
   end
 end

@@ -83,23 +83,42 @@ const TrailsIndexContainer = (props) => {
   }
 
   let nearbyTrails = (
+      <div className="nearby">
       <Link className="button" to="/trails/nearby">
-        See Nearby Trails
+        Current Conditions and Nearby Trails
       </Link>
+      </div>
     );
 
+  let welcome = (
+    <div className="welcome">
+      Find Your Next <br>
+      </br>Adventure...
+    </div>
+  ) 
+
   return (
-    <div className="grid-container">
-      <div className="grid-x grid-margin-x">
-        <div className="cell small-3 callout">
-        <h3>Popular Trails:</h3>
-          {trailTiles}
-          {addTrail}
-          {nearbyTrails}
+    <div>
+      <div className="grid-container">
+        <div className="grid-x grid-margin-x">
+          <div className="cell small-3 callout">
+            {nearbyTrails}
+          </div>
+          <div className="cell small-6"
+            >{welcome}
+          </div>
+          <div className="cell small-3 callout">
+            <h3>Popular Trails:</h3>
+            {addTrail}
+            {trailTiles}   
+          </div>
         </div>
       </div>
+      
     </div>
   );
 };
 
 export default TrailsIndexContainer;
+
+

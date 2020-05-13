@@ -68,7 +68,7 @@ const TrailShowContainer = (props) => {
       return <NoteTile
         key={note.id}
         note={note}
-        canDelete={props.user.admin}
+        canDelete={props.user.admin || props.user.user_id === note.user_id}
         onDeleteClicked={deleteNote} />;
     });
   }
