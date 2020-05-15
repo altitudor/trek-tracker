@@ -14,5 +14,5 @@ Note.create(note: "This hike is so fun, can be strenuous at times but great rewa
 Note.create(note: "Love this hike! Can't wait to come back!", user: User.first, trail: Trail.third)
 Note.create(note: "Wide, flat, maintained trail, great for trail running.", user: User.second, trail: Trail.second)
 Note.create(note: "Relatively easy/quick hike with major payoffs, amazing views of the notch!", user: User.first, trail: Trail.fourth)
-Note.create(note: "Easy hike, right off the highway, some areas are boardways for easy stepping, cool geological features, loads of tourists, though.", user: User.first, trail: Trail.fifth)
+Note.create(note: "Easy hike, right off the highway, some areas are boardwalks for easy stepping, cool geological features, loads of tourists, though.", user: User.first, trail: Trail.fifth)
 Note.create(note: "Nice hike any season, you can stay over at the hut for a cool experience.", user: User.second, trail: Trail.first)
