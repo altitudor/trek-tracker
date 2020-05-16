@@ -16,9 +16,9 @@
           <h1><a href="/">BaseCamp</a></h1>
           <section class="top-bar-section">
             <div class="right">
-              <%- if current_user && current_user.profile_photo -%>
+              <%- if current_user && !current_user.profile_photo.to_s.empty? -%>
                 <a href="/users/<%= current_user.id %>">
-                  <img class="user-pic-thumbnail" src=<%= current_user.profile_photo %> />
+                  <img class="user-pic-thumbnail" src="<%= current_user.profile_photo %>"></img>
                 </a>
               <%- end -%>
               <span class="current-user" style="float:right">
@@ -33,7 +33,7 @@
                   <p><%= link_to 'Sign Up', new_user_registration_path %></p>
                   <p><%= link_to 'Sign In', new_user_session_path %></p>
                 <%- end -%>
-              </span> 
+              </span>
             </div>
           </section>
         </nav>
