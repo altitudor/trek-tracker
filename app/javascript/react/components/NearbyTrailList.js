@@ -2,12 +2,20 @@ import React, { useState, useEffect } from "react";
 
 import FavoriteComponent from "./FavoriteComponent";
 
+import Loader from 'react-loader-spinner';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+
 const NearbyTrailList = (props) => {
-  let [ trails, setTrails ] = useState([]);
+  const [ trails, setTrails ] = useState([]);
+  const [ showLoader, setShowLoader ] = useState(false)
 
   useEffect(() => {
     const lat = props.coords.latitude;
     const lon = props.coords.longitude;
+    if (typeof lat === "undefined" || typeof lon === "undefined"){
+      return
+    }
+    setShowLoader(true)
     fetch(`/api/v1/nearby_trails_data?lat=${lat}&lon=${lon}`)
       .then((response) => {
         if (response.ok) {
@@ -23,12 +31,22 @@ const NearbyTrailList = (props) => {
         if (body.trails) {
           let trailData = body.trails;
           setTrails(trailData);
+          setShowLoader(false)
         }
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, [props.coords]);
 
-  
+  let loader = <></>
+  if (showLoader === true) {
+  loader = <Loader
+       type="RevolvingDot"
+       color="#80BDEB"
+       height={100}
+       width={100}
+       timeout={3000} //3 secs
+    />
+  }
 
   let trailsInfo;
   trailsInfo = trails.map((trail)=> {
@@ -64,9 +82,15 @@ const NearbyTrailList = (props) => {
 
   return (
     <div>
-    <h3>Nearby Trails:</h3>
-    {trailsInfo}
-  </div>
+      <div>
+        <div>{loader}</div>
+        <h3>Nearby Trails:</h3>
+            {trailsInfo}
+      </div>
+      <div>
+        <ScrollUpButton />
+      </div>
+    </div>
   )
 }
 

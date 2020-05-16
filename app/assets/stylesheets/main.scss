@@ -26,6 +26,10 @@ h1 a {
   font-family: 'Unica One', cursive;
 }
 
+a:hover {
+  color: #8499B3;
+}
+
 h2 {
   color: #8499B3;
   font-family: 'Scope One', serif;
@@ -75,6 +79,10 @@ li {
   border-radius: 20px;
 }
 
+.button:hover {
+  background-color: #8499B3;
+}
+
 .cell {
   margin-top: 3rem;
 }
@@ -96,7 +104,7 @@ li {
   color: #F48650;
 }
 
-img {
+.profile-pic {
   height: 250px;
   width: 225px;
 }
@@ -110,7 +118,7 @@ img {
   font-size: 75px;
   text-shadow: white;
   color: rgb(60, 64, 66);
-  position: relative; 
+  position: relative;
 	top: 55px;
   text-align: center;
 }
@@ -122,4 +130,9 @@ i {
 .profile {
   background-color: white;
   border-radius: 20px;
+}
+
+div.sticky {
+  position: sticky;
+  top: 9rem;
 }

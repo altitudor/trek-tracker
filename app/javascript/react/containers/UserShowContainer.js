@@ -1,7 +1,11 @@
 import React, { useState, useEffect} from 'react'
+
 import UserProfileComponent from "./../components/UserProfileComponent"
 import UserNotesComponent from "./../components/UserNotesComponent"
 import UserFavoriteList from '../components/UserFavoriteList'
+
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+
 
 const UserShowContainer = (props) => {
 
@@ -52,8 +56,8 @@ const UserShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [userID])
 
-  const onDeleteClicked = (noteID) => {
-    fetch(`/api/v1/notes/${noteID}`, {
+  const onDeleteClicked = (note) => {
+    fetch(`/api/v1/trails/${note.trail_id}/notes/${note.id}`, {
       credentials: "same-origin",
       method: "DELETE",
       headers: {
@@ -73,7 +77,7 @@ const UserShowContainer = (props) => {
     .then(response => response.json())
     .then(trail=> {
       let newNoteList = notes.filter((item) => {
-        const keepNote = (item.id !== noteID)
+        const keepNote = (item.id !== note.id)
         return keepNote
       })
       setNotes(newNoteList)
@@ -85,7 +89,7 @@ const UserShowContainer = (props) => {
   if (user.email) {
     userProfile = <UserProfileComponent user={user} />;
   }
-    
+
   return (
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
@@ -95,9 +99,9 @@ const UserShowContainer = (props) => {
               </div>
             <div className="cell small-6 callout">
               <div>
-              <UserNotesComponent 
-                notes={notes} 
-                onDeleteClicked={onDeleteClicked} 
+              <UserNotesComponent
+                notes={notes}
+                onDeleteClicked={onDeleteClicked}
                 currentUser={props.user}
               />
               </div>
@@ -108,6 +112,9 @@ const UserShowContainer = (props) => {
                 favorites={favorites}
                 canEdit={props.user.user_id === user.user_id}
               />
+            </div>
+            <div>
+              <ScrollUpButton />
             </div>
           </div>
         </div>
