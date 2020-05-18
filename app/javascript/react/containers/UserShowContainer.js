@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import UserProfileComponent from './../components/UserProfileComponent'
 import UserNotesComponent from './../components/UserNotesComponent'
 import UserFavoriteList from '../components/UserFavoriteList'
+import UserCompletedListComponent from '../components/UserCompletedListComponent'
 import NoteEditContainer from './NoteEditContainer'
 
 import {CircleArrow as ScrollUpButton} from 'react-scroll-up-button';
@@ -18,10 +19,11 @@ const UserShowContainer = (props) => {
     profile_photo: {}
   }
 
-  const [notes, setNotes] = useState([])
-  const [user, setUser] = useState(defaultUserData)
-  const [favorites, setFavorites] = useState([])
+  const [notes, setNotes] = useState([]);
+  const [user, setUser] = useState(defaultUserData);
+  const [favorites, setFavorites] = useState([]);
   const [editNote, setEditNote] = useState({});
+  const [completedTrails, setCompletedTrails] = useState([]);
 
   let userID = props.match.params.id
 
@@ -40,6 +42,22 @@ const UserShowContainer = (props) => {
     .then(data => {
       setUser(data.user)
       setNotes(data.user.notes)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+
+    fetch(`/api/v1/completed_trails_data/${userID}`)
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        let error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      setCompletedTrails(data.completed_trails)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 
@@ -129,7 +147,7 @@ const UserShowContainer = (props) => {
               <div className="profile">
               {userProfile}
               </div>
-            <div className="cell small-6 callout">
+            <div className="cell small-4 callout">
               <div>
               <UserNotesComponent
                 notes={notes}
@@ -143,9 +161,15 @@ const UserShowContainer = (props) => {
               </div>
             </div>
             </div>
-            <div className="cell small-6 callout">
+            <div className="cell small-3 callout">
               <UserFavoriteList
                 favorites={favorites}
+                canEdit={props.user.user_id === user.user_id}
+              />
+            </div>
+            <div className="cell small-3 callout">
+              <UserCompletedListComponent
+                completedTrails={completedTrails}
                 canEdit={props.user.user_id === user.user_id}
               />
             </div>

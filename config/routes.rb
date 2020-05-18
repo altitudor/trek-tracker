@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       resources :favorites, only: [:index, :show, :create, :destroy]
       resources :users, only: [:show]
       resources :favorite_trails_data, only: [:show]
+      resources :completed_trails, only: [:index, :show, :create, :destroy]
+      resources :completed_trails_data, only: [:show]
     end
   end
 end

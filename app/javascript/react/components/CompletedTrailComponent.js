@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const FavoriteComponent = (props) => {
-  let [ favorite, setFavorite ] = useState(null);
+const CompletedTrailComponent = (props) => {
+  let [ completedTrail, setCompletedTrail ] = useState(null);
 
   useEffect(() => {
     if (!props.api_id) {
       return
     }
-    fetch(`/api/v1/favorites/${props.api_id}`)
+    fetch(`/api/v1/completed_trails/${props.api_id}`)
       .then((response) => {
         if (response.ok) {
           return response;
@@ -19,21 +19,21 @@ const FavoriteComponent = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-          setFavorite(body);
+          setCompletedTrail(body);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, [props.api_id]);
 
   let iconClass = ""
-    if (favorite === true) {
-        iconClass = "fas fa-heart"
-    } else if (favorite === false) {
-        iconClass = "far fa-heart"
+    if (completedTrail === true) {
+        iconClass = "fas fa-star"
+    } else if (completedTrail === false) {
+        iconClass = "far fa-star"
     }
 
     const handleClick = (event) => {
-      if (favorite ===false) {
-        fetch(`/api/v1/favorites`, {
+      if (completedTrail ===false) {
+        fetch(`/api/v1/completed_trails`, {
           credentials: "same-origin",
           method: "POST",
           body: JSON.stringify({"api_id": props.api_id}),
@@ -42,8 +42,8 @@ const FavoriteComponent = (props) => {
             "Content-Type": "application/json"
           }
         });
-      } else if (favorite === true) {
-        fetch(`/api/v1/favorites/${props.api_id}`, {
+      } else if (completedTrail === true) {
+        fetch(`/api/v1/completed_trails/${props.api_id}`, {
           credentials: "same-origin",
           method: "DELETE",
           headers: {
@@ -52,7 +52,7 @@ const FavoriteComponent = (props) => {
           }
         })
       }
-      setFavorite(!favorite)
+      setCompletedTrail(!completedTrail)
     }
 
     let icon = <></>
@@ -67,4 +67,4 @@ const FavoriteComponent = (props) => {
   )
 }
 
-export default FavoriteComponent;
+export default CompletedTrailComponent;

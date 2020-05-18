@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import FavoriteComponent from "./FavoriteComponent";
+import CompletedTrailComponent from "./CompletedTrailComponent";
 
 import Loader from 'react-loader-spinner';
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
@@ -51,17 +52,21 @@ const NearbyTrailList = (props) => {
   let trailsInfo;
   trailsInfo = trails.map((trail)=> {
     let favorite = <></>
+    let completed = <></>
 
     if (props.user.id && trail) {
     favorite = <FavoriteComponent
           api_id={trail.id}
-        />
+        />;
+    completed = <CompletedTrailComponent
+          api_id={trail.id}
+        />;
     }
 
     return(
       <div key={trail.id} className="grid-container no-padding">
         <div className="grid-x grid-margin-x">
-          {favorite}
+          {favorite}{completed}
           <h4 className="small-8 large-10">{trail.name}</h4>
           <div>
           <img src={trail.imgSmallMed}/>

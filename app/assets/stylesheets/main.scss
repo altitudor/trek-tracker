@@ -146,6 +146,25 @@ div.sticky {
 }
 
 .loader {
-  position: relative;
-  left: 100px;
+
+}
+
+footer {
+  background-color: white;
+  padding-bottom: 15px;
+  padding-top: 13px;
+  font-family: 'Scope One', serif;
+}
+
+.footer {
+  padding: 5px;
+}
+
+span .footer {
+  display: inline;
+}
+
+.spacer {
+  margin-left: 15px;
+  margin-right: 15px;
 }
