@@ -2,9 +2,9 @@ class Api::V1::NotesController < ApplicationController
     protect_from_forgery unless: -> { request.format.json? }
 
     def create
-        note = Note.new(note_params)
+        note = Note.new(note_create_params)
         if note.save
-            render json: { note: note }
+            render json: note
         else
             render json: { error: note.errors.full_messages }, status: :unprocessable_entity
         end
@@ -16,7 +16,7 @@ class Api::V1::NotesController < ApplicationController
 
       if note_by_current_user || is_admin
         note = Note.find(params[:id])
-        note.update(note_params)
+        note.update(note_update_params)
         note.save
         render json: note
       else
@@ -38,7 +38,11 @@ class Api::V1::NotesController < ApplicationController
 
   protected
 
-    def note_params
+    def note_update_params
         params.permit(:note)
+    end
+
+    def note_create_params
+        params.require(:note).permit(:note, :user_id, :trail_id)
     end
 end
