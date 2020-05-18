@@ -4,6 +4,7 @@ const NoteTile = (props) => {
 
 
   let deleteButton = <></>;
+  let editButton = <></>;
 
   if (props.canDelete) {
     deleteButton = <input id={`${props.note.id}`}
@@ -11,17 +12,25 @@ const NoteTile = (props) => {
                     value="Delete"
                     onClick={props.onDeleteClicked}
                     className="hollow button"></input>
+    editButton = <input id={`${props.note.id}`}
+                    type="button"
+                    value="Edit"
+                    onClick={props.onEditClicked}
+                    className="hollow button"></input>
   }
     return (
-        <div className="card">
-          <div className="card-divider">
-            {props.note.user}
-          </div>
-          <div className="card-section" >
-            {props.note.note}
-          </div>
+        <div>
           <div>
-          {deleteButton}
+            <div>
+              <span className="bold"> User: </span>{props.note.user_name}
+            </div>
+            <div>
+              <span className="bold"> Trail Notes: </span>{props.note.note}
+            </div>
+            <div>
+              {deleteButton} {editButton}
+            </div>
+            <hr/>
           </div>
         </div>
     );

@@ -10,16 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_190855) do
+ActiveRecord::Schema.define(version: 2020_05_10_022155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "completed_trails", force: :cascade do |t|
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "api_id", null: false
+    t.boolean "completed", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

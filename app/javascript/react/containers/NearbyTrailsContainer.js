@@ -34,7 +34,7 @@ const NearbyTrailsContainer = (props) => {
 
   return(
     <div>
-    <div> {loader} </div>
+    <div className="loader"> {loader} </div>
     <div className="grid-container">
     <div className="grid-x grid-margin-x">
       <div className="cell small-6 callout">
