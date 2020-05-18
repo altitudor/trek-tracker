@@ -6,7 +6,7 @@ Web application Name: BaseCamp
 
 Author: Monika Wilson
 
-Link:https://basecamp.herokuapp.com/
+Link:https://basecampapp.herokuapp.com/
 
 ### About:
 
@@ -30,7 +30,7 @@ APIs used in the app are:
 
 * As an authenticated user with member status, you can add trails and trail details.
 
-* As an authenticated user with member status, you can post, edit and delete your own trail notes.
+* As an authenticated user with member status, you can post, edit and delete your own trail notes. As well as, favorite hikes and check hikes as completed.
 
 * As an authenticated user with admin authorization, you have the additional authority to delete trails and trail notes of other users.
 
