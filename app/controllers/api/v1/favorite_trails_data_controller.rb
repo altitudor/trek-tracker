@@ -1,4 +1,3 @@
-
 class Api::V1::FavoriteTrailsDataController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
@@ -8,7 +7,7 @@ class Api::V1::FavoriteTrailsDataController < ApplicationController
     favorites = ""
     user.favorites.each_with_index { |favorite, i|
       if (i > 0)
-        favorites += "," 
+        favorites += ","
       end
       favorites += favorite.api_id.to_s
     }

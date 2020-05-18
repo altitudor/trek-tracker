@@ -1,10 +1,13 @@
 import React, { useState, useEffect} from 'react'
 
-import UserProfileComponent from "./../components/UserProfileComponent"
-import UserNotesComponent from "./../components/UserNotesComponent"
-import UserFavoriteList from '../components/UserFavoriteList'
+import { Link } from 'react-router-dom'
 
-import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+import UserProfileComponent from './../components/UserProfileComponent'
+import UserNotesComponent from './../components/UserNotesComponent'
+import UserFavoriteList from '../components/UserFavoriteList'
+import NoteEditContainer from './NoteEditContainer'
+
+import {CircleArrow as ScrollUpButton} from 'react-scroll-up-button';
 
 
 const UserShowContainer = (props) => {
@@ -18,6 +21,7 @@ const UserShowContainer = (props) => {
   const [notes, setNotes] = useState([])
   const [user, setUser] = useState(defaultUserData)
   const [favorites, setFavorites] = useState([])
+  const [editNote, setEditNote] = useState({});
 
   let userID = props.match.params.id
 
@@ -90,6 +94,34 @@ const UserShowContainer = (props) => {
     userProfile = <UserProfileComponent user={user} />;
   }
 
+  const onEditClicked = (note) => {
+    setEditNote(note);
+  }
+
+  const onNoteEdited = (note) => {
+    let newNotes = notes.map(oldNote => {
+      if (oldNote.id === note.id) {
+        return note;
+      } else {
+        return oldNote;
+      }
+    });
+
+    setEditNote({});
+    setNotes(newNotes);
+  }
+
+  let editNoteForm;
+  if (editNote.id) {
+    editNoteForm = <NoteEditContainer
+      note={editNote}
+      onNoteEdited={onNoteEdited}
+    />
+  } else {
+    editNoteForm = <></>
+  }
+
+
   return (
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
@@ -102,8 +134,12 @@ const UserShowContainer = (props) => {
               <UserNotesComponent
                 notes={notes}
                 onDeleteClicked={onDeleteClicked}
+                onEditClicked={onEditClicked}
                 currentUser={props.user}
               />
+              </div>
+              <div>
+                {editNoteForm}
               </div>
             </div>
             </div>
@@ -116,6 +152,9 @@ const UserShowContainer = (props) => {
             <div>
               <ScrollUpButton />
             </div>
+          </div>
+          <div className="bottom-bar">
+            <Link to="/">Back to Home</Link>
           </div>
         </div>
   )

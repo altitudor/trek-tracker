@@ -1,4 +1,3 @@
-
 class Api::V1::NearbyWeatherDataController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 

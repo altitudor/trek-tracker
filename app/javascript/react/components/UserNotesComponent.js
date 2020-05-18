@@ -13,6 +13,7 @@ const UserNotesComponent = props => {
           canDelete={props.currentUser && (props.currentUser.admin ||
              props.currentUser.id === note.user_id)}
           onDeleteClicked={() => props.onDeleteClicked(note)}
+          onEditClicked={() => props.onEditClicked(note)}
         />
       )
     })
